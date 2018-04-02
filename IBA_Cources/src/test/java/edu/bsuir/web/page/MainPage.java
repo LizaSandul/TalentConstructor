@@ -28,10 +28,9 @@ public class MainPage {
         element.click();
     }
 
-    public void openNotification(){
-        WebElement element = driver.findElement(MainPageElements.NOTIFICATION_PAGE);
-        element.click();
+    public String getTitle() {
+        WebElement name = driver.findElement(MainPageElements.TITLE);
+        return name.getText();
     }
-
 
 }

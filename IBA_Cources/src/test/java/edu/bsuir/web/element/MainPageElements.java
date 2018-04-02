@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 public class MainPageElements {
 
     public static final By HEAD_IMAGE = By.xpath("div[@id=\"heading\"]");
+    public static final By TITLE = By.xpath("//title");
 
     public static final By LOGOUT = By.xpath("//a[@href='/c/portal/logout']");
     //сделать через layout

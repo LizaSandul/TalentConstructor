@@ -21,6 +21,7 @@ public class AppTest {
     private RequestPage rp = new RequestPage();
 
     public static final String ADAPTATION_PAGE = "Подбор и адаптация - Конструктор Талантов";
+    public static final String REQUEST_PAGE = "Создание заявки на подбор персонала - Конструктор Талантов";
 
     public void Login() {
         lp.enterLoginPage();
@@ -29,10 +30,11 @@ public class AppTest {
         lp.clickButton();
     }
     @Test
-    public void clickAdaptation () {
+    public void clickAdaptation () throws InterruptedException {
         Login();
         mp.clickRecruiting();
-        Assert.assertEquals(ADAPTATION_PAGE, driver.getTitle());
+        Thread.sleep(100000);
+        Assert.assertEquals(ADAPTATION_PAGE, mp.getTitle());
     }
 
     @Test
@@ -40,7 +42,7 @@ public class AppTest {
         Login();
         mp.clickRecruiting();
         rp.clickCreateButton();
-        Assert.assertEquals("Создание заявки на подбор персонала - Конструктор Талантов",driver.getTitle());
+        Assert.assertEquals(REQUEST_PAGE,mp.getTitle());
     }
 
     @Test
