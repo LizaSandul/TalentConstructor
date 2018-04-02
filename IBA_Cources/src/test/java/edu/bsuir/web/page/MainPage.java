@@ -14,12 +14,13 @@ public class MainPage {
         WebElement element = driver.findElement(MainPageElements.PROFILE);
         element.click();
     }
-    public void clickRecruiting() {
-        WebElement element = driver.findElement(MainPageElements.RECRUITING);
-        element.click();
-    }
     public void clickDirectory() {
         WebElement element = driver.findElement(MainPageElements.DIRECTORY);
+        element.click();
+    }
+
+    public void clickRecruiting() {
+        WebElement element = driver.findElement(MainPageElements.RECRUITING);
         element.click();
     }
 
@@ -32,5 +33,6 @@ public class MainPage {
         WebElement name = driver.findElement(MainPageElements.TITLE);
         return name.getText();
     }
+
 
 }
