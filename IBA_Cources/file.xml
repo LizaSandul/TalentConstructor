@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TalentConstructor>
+    <Role Name="Генеральный директор">
+        <Login>kamelev@tc.by</Login>
+        <Password>welcome</Password>
+    </Role>
+    <Role Name="Отдел подбора и развития персонала">
+        <Login>zaicev@tc.by</Login>
+        <Password>welcome</Password>
+    </Role>
+    <Role Name="HR">
+        <Login>kabanov@tc.by</Login>
+        <Password>welcome</Password>
+    </Role>
+    <Role Name="Администрация управления">
+        <Login>zaharov@tc.by</Login>
+        <Password>welcome</Password>
+    </Role>
+</TalentConstructor>

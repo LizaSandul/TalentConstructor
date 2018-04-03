@@ -1,27 +1,27 @@
 package edu.bsuir.test;
 
 import edu.bsuir.driver.WebDriverSingleton;
+import edu.bsuir.general.Parser;
+import edu.bsuir.general.User;
+import edu.bsuir.general.Login;
 import edu.bsuir.web.page.LoginPage;
 import edu.bsuir.web.page.MainPage;
-import edu.bsuir.web.page.RequestPage;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
-public class LoginTest {
+public class LoginTest extends Login {
 
     private WebDriver driver = WebDriverSingleton.getInstance();
 
     private LoginPage lp = new LoginPage();
     private MainPage mp = new MainPage();
-    private RequestPage rp = new RequestPage();
 
     public static final String ERROR_MESSAGE = "Ваш запрос завершился с ошибкой.";
     public static final String LENINA_PAGE = "Алёна Валентиновна Ленина";
+    public static final String KABANOV_PAGE = "Александр Евгеньевич Кабанов";
     public static final String REQUIRED_MESSAGE = "Это обязательное поле.";
 
     @Before
@@ -29,62 +29,33 @@ public class LoginTest {
         driver = WebDriverSingleton.getInstance();
     }
 
-    public void Login() {
-        lp.enterLoginPage();
-        lp.typeUsername("kabanov@tc.by");
-        lp.typePassword("welcome");
-        lp.clickButton();
+    @Test
+    public void checkLogin() throws InterruptedException {
+        super.loginUser("HR");
+        Assert.assertEquals(KABANOV_PAGE, lp.getLogName());
     }
 
-    @Test
-    public void checklogin(){
-        lp.enterLoginPage();
-        lp.typeUsername("lenina@tc.by");
-        lp.typePassword("welcome");
-        lp.clickButton();
-        Assert.assertEquals(LENINA_PAGE, lp.getLogName());
-    }
 
     @Test
-    public void checkloginBack(){
-        lp.enterLoginPage();
-        lp.typeUsername("lenina@tc.by");
-        lp.typePassword("welcome");
-        lp.clickButton();
+    public void checkloginBack() throws InterruptedException {
+        super.loginUser("HR");
         driver.navigate().back();
         Assert.assertEquals(LENINA_PAGE, lp.getLogName());
     }
 
     @Test
-    public void checklogOutBack(){
-        lp.enterLoginPage();
-        lp.typeUsername("lenina@tc.by");
-        lp.typePassword("welcome");
-        lp.clickButton();
+    public void checklogOutBack() throws InterruptedException {
+        super.loginUser("HR");
         mp.clickExit();
         driver.navigate().back();
         Assert.assertNotEquals(LENINA_PAGE, lp.getLogName());
     }
 
     @Test
-    public void checkRememberMe()  {
-
-        lp.enterLoginPage();
-        lp.typeUsername("lenina@tc.by");
-        lp.typePassword("welcome");
-        lp.checkRememberMe();
-        lp.clickButton();
-        //закрыть вкладку
-        lp.enterLoginPage();
-        Assert.assertEquals(LENINA_PAGE, lp.getLogName());
-
-    }
-
-    @Test
     public void negativeLogin()  {
         lp.enterLoginPage();
         lp.typeUsername("lenin@tc.by");
-        lp.typePassword("welcome");
+        lp.typePassword("welcome1");
         lp.clickButton();
         Assert.assertEquals(ERROR_MESSAGE, lp.error());
     }

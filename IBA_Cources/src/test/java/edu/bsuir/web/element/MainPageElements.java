@@ -1,17 +1,18 @@
 package edu.bsuir.web.element;
 
+import edu.bsuir.element.Element;
 import org.openqa.selenium.By;
 
 public class MainPageElements {
 
     public static final By HEAD_IMAGE = By.xpath("div[@id=\"heading\"]");
-    public static final By TITLE = By.xpath("//title");
+    public static final Element TITLE = new Element("Заголовок", By.xpath("//title"));
 
-    public static final By LOGOUT = By.xpath("//a[@href='/c/portal/logout']");
+    public static final Element LOGOUT = new Element("Кнопка выйти",By.xpath("//a[@href='/c/portal/logout']"));
     //сделать через layout
 
-    public static final By PROFILE = By.xpath("//a[contains(@href,'home/profile')]");
-    public static final By RECRUITING = By.xpath("//a[@aria-labelledby=\"layout_2\"]");
+    public static final Element PROFILE = new Element("Кнопка Профиль",By.xpath("//a[contains(@href,'home/profile')]"));
+    public static final Element RECRUITING = new Element("Отбор и подбор",By.xpath("//a[@aria-labelledby=\"layout_2\"]"));
 
     public static final By APPLICATIONS = By.xpath("//a[contains(@href,'recruiting/applications')]");
     public static final By VACANCIES = By.xpath("//a[contains(@href,'recruiting/vacancies')]");
@@ -22,7 +23,7 @@ public class MainPageElements {
     public static final By REPORTS = By.xpath("//a[contains(@href,'recruiting/reports')]");
     public static final By FUNNEL = By.xpath("//a[contains(@href,'recruiting/funnel')]");
 
-    public static final By DIRECTORY = By.xpath("//a[contains(@href,'directories')]");
+    public static final Element DIRECTORY = new Element("Справочники",By.xpath("//a[contains(@href,'directories')]"));
 
     public static final By MODEL = By.xpath("//a[contains(@href,'directories/model')]");
     public static final By EMPLOYEES = By.xpath("//a[contains(@href,'directories/employees')]");

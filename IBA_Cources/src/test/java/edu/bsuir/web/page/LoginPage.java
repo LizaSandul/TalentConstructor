@@ -1,9 +1,11 @@
 package edu.bsuir.web.page;
 
+import com.sun.org.apache.bcel.internal.generic.Select;
 import edu.bsuir.driver.WebDriverSingleton;
 import edu.bsuir.web.element.LoginElements;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
 public class LoginPage {
     WebDriver driver = WebDriverSingleton.getInstance();
@@ -13,49 +15,40 @@ public class LoginPage {
     }
 
     public void typeUsername(String username){
-        WebElement element = driver.findElement(LoginElements.USERNAME);
-        element.clear();
-        element.sendKeys(username);
+        LoginElements.USERNAME.type(username);
     }
+/*
+    public void selectDummyByValue(String value) {
+        Select select = new Select(LoginElements.DUMMY_SELECT.getWebElement());
+        select.selectByValue(value);
+    }*/
 
     public void typePassword(String password){
-        WebElement element = driver.findElement(LoginElements.PASSWORD);
-        element.clear();
-        element.sendKeys(password);
+        LoginElements.PASSWORD.type(password);
     }
 
     public void checkRememberMe(){
-        WebElement element = driver.findElement(LoginElements.REMEMBER_ME);
-        element.click();
+        LoginElements.REMEMBER_ME.click();
     }
 
     public void clickButton(){
-        WebElement element = driver.findElement(LoginElements.LOGIN_BUTTON);
-        element.click();
+        LoginElements.LOGIN_BUTTON.click();
     }
 
     public String error(){
-        WebElement error = driver.findElement(LoginElements.ERROR_INVALID_DATA);
-        return error.getText();
-
+       return LoginElements.ERROR_INVALID_DATA.getText();
     }
 
     public String loginError(){
-        WebElement error = driver.findElement(LoginElements.ERROR_LOGIN);
-        return error.getText();
-
+        return LoginElements.ERROR_LOGIN.getText();
     }
 
     public String passwordError(){
-        WebElement error = driver.findElement(LoginElements.ERROR_PASSWORD);
-        return error.getText();
-
+        return LoginElements.ERROR_PASSWORD.getText();
     }
 
     public String getLogName() {
-        WebElement name = driver.findElement(LoginElements.LOGNAME);
-        return name.getText();
-
+        return LoginElements.LOGNAME.getText();
     }
 
 }

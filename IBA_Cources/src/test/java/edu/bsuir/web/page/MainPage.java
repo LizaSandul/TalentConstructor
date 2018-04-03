@@ -11,27 +11,22 @@ public class MainPage {
     WebDriver driver = WebDriverSingleton.getInstance();
 
     public void clickProfile() {
-        WebElement element = driver.findElement(MainPageElements.PROFILE);
-        element.click();
+         MainPageElements.PROFILE.click();
     }
     public void clickDirectory() {
-        WebElement element = driver.findElement(MainPageElements.DIRECTORY);
-        element.click();
+        MainPageElements.DIRECTORY.click();
     }
 
     public void clickRecruiting() {
-        WebElement element = driver.findElement(MainPageElements.RECRUITING);
-        element.click();
+        MainPageElements.RECRUITING.click();
     }
 
     public void clickExit() {
-        WebElement element = driver.findElement(MainPageElements.LOGOUT);
-        element.click();
+        MainPageElements.LOGOUT.click();
     }
 
     public String getTitle() {
-        WebElement name = driver.findElement(MainPageElements.TITLE);
-        return name.getText();
+      return  MainPageElements.TITLE.getText();
     }
 
 

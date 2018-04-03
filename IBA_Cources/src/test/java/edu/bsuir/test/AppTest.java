@@ -56,7 +56,6 @@ public class AppTest {
         rp.clickCreateButton();
  }*/
 
-
     @After
     public void shutDown() {
         driver.close();
