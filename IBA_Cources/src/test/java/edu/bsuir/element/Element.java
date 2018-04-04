@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 public class Element
 {
@@ -41,13 +42,14 @@ public class Element
         }
     }
 
-    public WebElement getWebElement(){
+    public WebElement getWebElement() {
         return WebDriverSingleton.getInstance().findElement(by);
     }
 
     public void assertPresence(){
         Assert.assertTrue("Элемент"+name+"не существует на старнцие",isElementPresent());
     }
+
     public void click(){
         assertPresence();
         getWebElement().click();
@@ -64,6 +66,13 @@ public class Element
         WebElement element = getWebElement();
         element.clear();
         element.sendKeys(text);
+    }
+
+    public void doubleClick(){
+        assertPresence();
+        Actions actions = new Actions(WebDriverSingleton.getInstance());
+        actions.doubleClick(getWebElement());
+        actions.perform();
     }
 
 }

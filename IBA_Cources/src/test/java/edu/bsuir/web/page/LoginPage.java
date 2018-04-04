@@ -1,11 +1,9 @@
 package edu.bsuir.web.page;
 
-import com.sun.org.apache.bcel.internal.generic.Select;
 import edu.bsuir.driver.WebDriverSingleton;
 import edu.bsuir.web.element.LoginElements;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.Select;
 
 public class LoginPage {
     WebDriver driver = WebDriverSingleton.getInstance();
@@ -17,11 +15,6 @@ public class LoginPage {
     public void typeUsername(String username){
         LoginElements.USERNAME.type(username);
     }
-/*
-    public void selectDummyByValue(String value) {
-        Select select = new Select(LoginElements.DUMMY_SELECT.getWebElement());
-        select.selectByValue(value);
-    }*/
 
     public void typePassword(String password){
         LoginElements.PASSWORD.type(password);
@@ -49,6 +42,11 @@ public class LoginPage {
 
     public String getLogName() {
         return LoginElements.LOGNAME.getText();
+    }
+
+    public void selectDummyByValue(String value) {
+        Select select = new Select(LoginElements.DUMMY_SELECT.getWebElement());
+        select.selectByValue(value);
     }
 
 }

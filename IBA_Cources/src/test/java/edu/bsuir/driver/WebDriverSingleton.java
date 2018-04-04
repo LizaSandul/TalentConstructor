@@ -12,9 +12,9 @@ public class WebDriverSingleton {
         if (webDriver == null) {
             System.setProperty("webdriver.chrome.driver", "src/resources/chromedriver.exe");
             webDriver = new ChromeDriver();
-            webDriver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+            webDriver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
             webDriver.manage().window().maximize();
-            webDriver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+            webDriver.manage().timeouts().pageLoadTimeout(120, TimeUnit.SECONDS);
         }
         return webDriver;
     }

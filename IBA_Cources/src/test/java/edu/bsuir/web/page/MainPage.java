@@ -25,9 +25,16 @@ public class MainPage {
         MainPageElements.LOGOUT.click();
     }
 
-    public String getTitle() {
+    public String getPageTitle() {
       return  MainPageElements.TITLE.getText();
     }
 
+    public void clickCandidate(){
+        MainPageElements.CANDIDATES.click();
+    }
+
+    public void clickMenu(){
+        MainPageElements.MENU.click();
+    }
 
 }

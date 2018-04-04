@@ -8,6 +8,8 @@ public class MainPageElements {
     public static final By HEAD_IMAGE = By.xpath("div[@id=\"heading\"]");
     public static final Element TITLE = new Element("Заголовок", By.xpath("//title"));
 
+    public static final Element MENU = new Element("Меню", By.xpath("//div[@id='heading']//div[contains (@img,'')]"));
+
     public static final Element LOGOUT = new Element("Кнопка выйти",By.xpath("//a[@href='/c/portal/logout']"));
     //сделать через layout
 
@@ -16,7 +18,9 @@ public class MainPageElements {
 
     public static final By APPLICATIONS = By.xpath("//a[contains(@href,'recruiting/applications')]");
     public static final By VACANCIES = By.xpath("//a[contains(@href,'recruiting/vacancies')]");
-    public static final By CANDIDATES = By.xpath("//a[contains(@href,'recruiting/candidates')]");
+    //!!!!!
+    public static final Element CANDIDATES = new Element("Кандидаты",By.xpath("//a[@aria-labelledby='layout_19']"));
+    //!!!
     public static final By QUESTIONS = By.xpath("//a[contains(@href,'recruiting/questions')]");
     public static final By TEMPALATE = By.xpath("//a[contains(@href,'recruiting/templates')]");
     public static final By ON_BOARDING = By.xpath("//a[contains(@href,'recruiting/onboarding')]");

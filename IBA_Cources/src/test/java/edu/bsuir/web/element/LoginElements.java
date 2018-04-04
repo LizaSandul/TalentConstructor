@@ -11,7 +11,7 @@ public class LoginElements {
     public static final Element LOGIN_BUTTON = new Element("Кнопка входа", By.xpath("//button[@class='btn btn-primary']"));
     public static final Element REMEMBER_ME = new Element("CheckBox Запомнить",By.xpath("//input[@id=\"_58_rememberMeCheckbox\"]"));
 
-    public static final Element LOGNAME = new Element("",By.xpath("//a[@class='signed-in']"));
+    public static final Element LOGNAME = new Element("Имя входа",By.xpath("//a[@class='signed-in']"));
     public static final Element ERROR_LOGIN =new Element("Оповещение ошибка логина",By.xpath("//div[./input[@id='_58_login']]/div[@class='form-validator-stack help-inline']/div"));
     public static final Element ERROR_PASSWORD =new Element("Оповещение ошибка пароля",By.xpath("//div[./input[@id='_58_password']]/div[@class='form-validator-stack help-inline']/div"));
     public static final Element ERROR_INVALID_DATA =new Element("Оповещение не валидные значения",By.xpath("//div[@class='portlet-body']/div[@class='alert alert-error']"));

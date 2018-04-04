@@ -13,6 +13,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import static org.junit.Assert.assertEquals;
+
 public class MenuTest extends Login {
 
     private WebDriver driver = WebDriverSingleton.getInstance();
@@ -20,6 +22,7 @@ public class MenuTest extends Login {
     private MainPage mp = new MainPage();
 
     public static final String ADAPTATION_PAGE = "Подбор и адаптация - Конструктор Талантов";
+    public static final String CANDIDATE_PAGE = "Кандидаты - Конструктор Талантов";
 
     @Before
     public void init(){
@@ -27,10 +30,20 @@ public class MenuTest extends Login {
     }
 
     @Test
-    public void clickAdaptation () throws InterruptedException {
+    public void clickAdaptationPage () throws InterruptedException {
         super.loginUser("HR");
         mp.clickRecruiting();
-        Assert.assertEquals(ADAPTATION_PAGE, mp.getTitle());
+        Assert.assertEquals(ADAPTATION_PAGE, driver.getTitle());
+    }
+
+    @Test
+    public void clickCandidatePage () throws InterruptedException {
+        super.loginUser("HR");
+        mp.clickRecruiting();
+        mp.clickMenu();
+        Thread.sleep(1000);
+        mp.clickCandidate();
+        Assert.assertEquals(CANDIDATE_PAGE, driver.getTitle());
     }
 
     @After
