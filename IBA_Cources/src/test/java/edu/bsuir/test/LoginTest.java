@@ -35,7 +35,6 @@ public class LoginTest extends Login {
         Assert.assertEquals(KABANOV_PAGE, lp.getLogName());
     }
 
-
     @Test
     public void checkloginBack() throws InterruptedException {
         super.loginUser("HR");
@@ -52,7 +51,7 @@ public class LoginTest extends Login {
     }
 
     @Test
-    public void negativeLogin()  {
+    public void checkNegativeLogin()  {
         lp.enterLoginPage();
         lp.typeUsername("lenin@tc.by");
         lp.typePassword("welcome1");
@@ -61,7 +60,7 @@ public class LoginTest extends Login {
     }
 
     @Test
-    public void negativePassword()  {
+    public void checkNnegativePassword()  {
         lp.enterLoginPage();
         lp.typeUsername("lenina@tc.by");
         lp.typePassword("welcome1");
@@ -130,7 +129,6 @@ public class LoginTest extends Login {
         Assert.assertEquals(ERROR_MESSAGE, lp.error());
     }
 
-
     @Test
     public void сheckLoginEndsWithSpace() {
         lp.enterLoginPage();
@@ -148,7 +146,6 @@ public class LoginTest extends Login {
         lp.clickButton();
         Assert.assertEquals(ERROR_MESSAGE, lp.error());
     }
-
 
     @Test
     public void сheckPasswordEndsWithSpace() {

@@ -15,7 +15,7 @@ public class ListofCandidatesPage {
     }
 
     public void clickClearFilter( ){
-        ListofCandidatesPageElements.CLEAR_FILTER.click();
+        ListofCandidatesPageElements.CLEAR_FILTER.getText();
     }
 
     public void selectExpirience(int value) {
@@ -105,5 +105,9 @@ public class ListofCandidatesPage {
 
     public String getMessageEmptySearch(){
         return ListofCandidatesPageElements.SEARCH_EMPTY_MESSAGE.getText();
+    }
+
+    public void clickCreateCandidate(){
+        ListofCandidatesPageElements.CANDIDATE_CREATE.click();
     }
 }

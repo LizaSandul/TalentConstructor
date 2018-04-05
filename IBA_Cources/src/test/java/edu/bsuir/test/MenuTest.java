@@ -21,33 +21,69 @@ public class MenuTest extends Login {
 
     private MainPage mp = new MainPage();
 
-    public static final String ADAPTATION_PAGE = "Подбор и адаптация - Конструктор Талантов";
-    public static final String CANDIDATE_PAGE = "Кандидаты - Конструктор Талантов";
+    public static final String ROLE = "HR";
+    public static final String REQUEST_PAGE = "Создание заявки на подбор персонала - Конструктор Талантов";
+    public static final String NEW_REQUST_PAGE = "programmer - Конструктор Талантов";
 
     @Before
-    public void init(){
+    public void init() throws InterruptedException {
         driver = WebDriverSingleton.getInstance();
+        super.loginUser(ROLE);
     }
 
     @Test
-    public void clickAdaptationPage () throws InterruptedException {
-        super.loginUser("HR");
-        mp.clickRecruiting();
-        Assert.assertEquals(ADAPTATION_PAGE, driver.getTitle());
+    public void clickImageTC() throws InterruptedException {
+        Assert.assertEquals(REQUEST_PAGE,mp.getPageTitle());
     }
 
     @Test
-    public void clickCandidatePage () throws InterruptedException {
-        super.loginUser("HR");
-        mp.clickRecruiting();
-        mp.clickMenu();
-        Thread.sleep(1000);
-        mp.clickCandidate();
-        Assert.assertEquals(CANDIDATE_PAGE, driver.getTitle());
+    public void clickExpandMenu() throws InterruptedException {
+        Assert.assertEquals(REQUEST_PAGE,mp.getPageTitle());
+    }
+
+    @Test
+    public void clickNotification() throws InterruptedException {
+        Assert.assertEquals(REQUEST_PAGE,mp.getPageTitle());
+    }
+
+    @Test
+    public void clickAddNotification() throws InterruptedException {
+        Assert.assertEquals(REQUEST_PAGE,mp.getPageTitle());
+    }
+
+    @Test
+    public void clickCalendar() throws InterruptedException {
+        Assert.assertEquals(REQUEST_PAGE,mp.getPageTitle());
+    }
+
+    @Test
+    public void clickSettings() throws InterruptedException {
+        Assert.assertEquals(REQUEST_PAGE,mp.getPageTitle());
+    }
+
+    @Test
+    public void clickSettingsUser() throws InterruptedException {
+        Assert.assertEquals(REQUEST_PAGE,mp.getPageTitle());
+    }
+
+    @Test
+    public void clickSettingsPage() throws InterruptedException {
+        Assert.assertEquals(REQUEST_PAGE,mp.getPageTitle());
+    }
+
+    @Test
+    public void clickHelp() throws InterruptedException {
+        Assert.assertEquals(REQUEST_PAGE,mp.getPageTitle());
+    }
+
+    @Test
+    public void clickExit() throws InterruptedException {
+        Assert.assertEquals(REQUEST_PAGE,mp.getPageTitle());
     }
 
     @After
     public void shutDown() {
         driver.close();
+        WebDriverSingleton.destroyInstance();
     }
 }

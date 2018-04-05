@@ -17,6 +17,8 @@ public class CandidateTest extends Login {
     private MainPage mp = new MainPage();
     private ListofCandidatesPage lcp = new ListofCandidatesPage();
 
+    public static final String ROLE = "HR";
+
     public static final String ROGOVA_PAGE = "Рогова Светлана Михайловна - Конструктор Талантов";
     public static final String ROGOVA = "Рогова Светлана Михайловна";
     public static final String ROGOVA_SURNAME = "Рогова";
@@ -29,15 +31,17 @@ public class CandidateTest extends Login {
     public static final String ROGOVA_SURNAME_WITH_SPACE_BETWEEN_LETTERS = "Р о г о в а";
     public static final String ROGOVA_SURNAME_WITH_SPACE = "      Рогова    ";
     public static final String SEARCH_EMPTY_MESSAGE = "Список кандидатов пуст";
+    public static final String CREATE_CANDIDATE_PAGE = "Создание резюме - Конструктор Талантов";
+
 
     @Before
-    public void init(){
+    public void init() throws InterruptedException {
         driver = WebDriverSingleton.getInstance();
+        super.loginUser(ROLE);
     }
 
     @Test
     public void clickRogova () throws InterruptedException {
-        super.loginUser("HR");
         lcp.enterPage();
         lcp.clickCandidateRogova();
         Assert.assertEquals(ROGOVA_PAGE, driver.getTitle());
@@ -45,7 +49,6 @@ public class CandidateTest extends Login {
 
     @Test
     public void clickRogovaPhoto () throws InterruptedException {
-        super.loginUser("HR");
         lcp.enterPage();
         Thread.sleep(1000);
         lcp.clickCandidateRogovaPhoto();
@@ -54,7 +57,6 @@ public class CandidateTest extends Login {
 
     @Test
     public void searchCandidateBySurname () throws InterruptedException {
-        super.loginUser("HR");
         lcp.enterPage();
         lcp.searchCandidate(ROGOVA_SURNAME);
         Assert.assertEquals(ROGOVA, lcp.getFirstFindCandidate());
@@ -62,7 +64,6 @@ public class CandidateTest extends Login {
 
     @Test
     public void searchCandidateByName () throws InterruptedException {
-        super.loginUser("HR");
         lcp.enterPage();
         lcp.searchCandidate(ROGOVA_NAME);
         Assert.assertEquals(ROGOVA, lcp.getFirstFindCandidate());
@@ -70,7 +71,6 @@ public class CandidateTest extends Login {
 
     @Test
     public void searchCandidateBySecondName () throws InterruptedException {
-        super.loginUser("HR");
         lcp.enterPage();
         lcp.searchCandidate(ROGOVA_SECOND_NAME);
         Assert.assertEquals(ROGOVA, lcp.getFirstFindCandidate());
@@ -78,7 +78,6 @@ public class CandidateTest extends Login {
 
     @Test
     public void searchCandidateWithWrongCharacters_1 () throws InterruptedException {
-        super.loginUser("HR");
         lcp.enterPage();
         Thread.sleep(1000);
         lcp.searchCandidate(ROGOVA_SURNAME_WITH_WRONG_CHARACTERS_1);
@@ -87,7 +86,6 @@ public class CandidateTest extends Login {
 
     @Test
     public void searchCandidateWithWrongCharacters_2 () throws InterruptedException {
-        super.loginUser("HR");
         lcp.enterPage();
         lcp.searchCandidate(ROGOVA_SURNAME_WITH_WRONG_CHARACTERS_2);
         Assert.assertEquals(SEARCH_EMPTY_MESSAGE, lcp.getMessageEmptySearch());
@@ -95,7 +93,6 @@ public class CandidateTest extends Login {
 
     @Test
     public void searchCandidateWithWrongCharacters_3 () throws InterruptedException {
-        super.loginUser("HR");
         lcp.enterPage();
         Thread.sleep(1000);
         lcp.searchCandidate(ROGOVA_SURNAME_WITH_WRONG_CHARACTERS_3);
@@ -105,15 +102,13 @@ public class CandidateTest extends Login {
 
     @Test
     public void searchCandidateWithWrongCharacters_4 () throws InterruptedException {
-        super.loginUser("HR");
         lcp.enterPage();
         lcp.searchCandidate(ROGOVA_SURNAME_WITH_WRONG_CHARACTERS_4);
         Assert.assertEquals(SEARCH_EMPTY_MESSAGE, lcp.getMessageEmptySearch());
     }
-    
+
     @Test
     public void searchCandidateWithSpaceBetweenLetters () throws InterruptedException {
-        super.loginUser("HR");
         lcp.enterPage();
         lcp.searchCandidate(ROGOVA_SURNAME_WITH_SPACE_BETWEEN_LETTERS);
         Assert.assertEquals(SEARCH_EMPTY_MESSAGE, lcp.getMessageEmptySearch());
@@ -121,7 +116,6 @@ public class CandidateTest extends Login {
 
     @Test
     public void searchCandidateWithSpace () throws InterruptedException {
-        super.loginUser("HR");
         lcp.enterPage();
         lcp.searchCandidate(ROGOVA_SURNAME_WITH_SPACE);
         Assert.assertEquals(ROGOVA, lcp.getFirstFindCandidate());
@@ -129,7 +123,6 @@ public class CandidateTest extends Login {
 
     @Test
     public void filterCandidate () throws InterruptedException {
-        super.loginUser("HR");
         lcp.enterPage();
         lcp.clickRelocationAvailable();
         Assert.assertEquals(ROGOVA, lcp.getFirstFindCandidate());
@@ -137,8 +130,8 @@ public class CandidateTest extends Login {
 
     @Test
     public void negativeFilterCandidate () throws InterruptedException {
-        super.loginUser("HR");
         lcp.enterPage();
+        Thread.sleep(1000);
         lcp.clickStatusAvailable();
         lcp.clickRelocationAvailable();
         lcp.clickRelocationUnAvailable();
@@ -148,6 +141,22 @@ public class CandidateTest extends Login {
         Assert.assertEquals(SEARCH_EMPTY_MESSAGE, lcp.getMessageEmptySearch());
     }
 
+    //не работает
+    @Test
+    public void checkClearFilter () throws InterruptedException {
+        lcp.enterPage();
+        Thread.sleep(1000);
+        lcp.clickStatusAvailable();
+        lcp.clickClearFilter();
+        Assert.assertEquals(ROGOVA, lcp.getFirstFindCandidate());
+    }
+
+    @Test
+    public void typeButtonCreateCandidate () throws InterruptedException {
+        lcp.enterPage();
+        lcp.clickCreateCandidate();
+        Assert.assertEquals(CREATE_CANDIDATE_PAGE, driver.getTitle());
+    }
 
     @After
     public void shutDown() {
