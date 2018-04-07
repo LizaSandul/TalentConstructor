@@ -1,14 +1,18 @@
 package edu.bsuir.test;
 
 import edu.bsuir.driver.WebDriverSingleton;
+import edu.bsuir.web.element.ListofCandidatesPageElements;
 import edu.bsuir.web.page.ListofCandidatesPage;
 import edu.bsuir.web.page.MainPage;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import edu.bsuir.general.Login;
+import org.openqa.selenium.WebElement;
 
 public class CandidateTest extends Login {
 
@@ -32,7 +36,7 @@ public class CandidateTest extends Login {
     public static final String ROGOVA_SURNAME_WITH_SPACE = "      Рогова    ";
     public static final String SEARCH_EMPTY_MESSAGE = "Список кандидатов пуст";
     public static final String CREATE_CANDIDATE_PAGE = "Создание резюме - Конструктор Талантов";
-
+    public static final String EXPERIENCE_FROM_ONE_YEAR = "12";
 
     @Before
     public void init() throws InterruptedException {
@@ -122,31 +126,67 @@ public class CandidateTest extends Login {
     }
 
     @Test
-    public void filterCandidate () throws InterruptedException {
+    public void filterCandidate () throws Exception {
         lcp.enterPage();
         lcp.clickRelocationAvailable();
+        lcp.selectExpirience(Integer.parseInt(EXPERIENCE_FROM_ONE_YEAR));
+        lcp.clickStatusNew();
+        lcp.clickStatusAvailable();
+        lcp.clickButtonVacancies();
+        lcp.clickButtonVacancies();
+        lcp.clickButtonEducation();
+        lcp.clickHigh();
+        lcp.clickButtonEducation();
+        lcp.clickButtonUniversity();
+        lcp.clickUniversityBSU();
+        lcp.clickButtonUniversity();
+        lcp.clickButtonCompetence();
         Assert.assertEquals(ROGOVA, lcp.getFirstFindCandidate());
     }
 
     @Test
-    public void negativeFilterCandidate () throws InterruptedException {
+    public void negativeFilterCandidate () throws Exception {
         lcp.enterPage();
-        Thread.sleep(1000);
-        lcp.clickStatusAvailable();
         lcp.clickRelocationAvailable();
-        lcp.clickRelocationUnAvailable();
+        lcp.selectExpirience(Integer.parseInt(EXPERIENCE_FROM_ONE_YEAR));
+        lcp.clickStatusNew();
+        lcp.clickButtonVacancies();
+        lcp.clickVacancyDesigner();
+        lcp.clickButtonEducation();
+        lcp.clickHigh();
+        lcp.clickButtonEducation();
         lcp.clickButtonUniversity();
         lcp.clickUniversityBSU();
-        lcp.clickUniversityBSUIR();
+        lcp.clickButtonUniversity();
+        lcp.clickButtonCompetence();
+        lcp.clickCompetenceMsAccess();
         Assert.assertEquals(SEARCH_EMPTY_MESSAGE, lcp.getMessageEmptySearch());
     }
 
-    //не работает
-    @Test
-    public void checkClearFilter () throws InterruptedException {
+    @Test(expected = Exception.class)
+    public void FilterNotClickEnotherOnes () throws Exception {
         lcp.enterPage();
-        Thread.sleep(1000);
-        lcp.clickStatusAvailable();
+        lcp.clickButtonEducation();
+        lcp.clickHigh();
+        lcp.clickButtonUniversity();
+    }
+
+    @Test
+    public void checkClearFilter () throws Exception {
+        lcp.enterPage();
+        lcp.clickRelocationAvailable();
+        lcp.selectExpirience(Integer.parseInt(EXPERIENCE_FROM_ONE_YEAR));
+        lcp.clickStatusNew();
+        lcp.clickButtonVacancies();
+        lcp.clickButtonVacancies();
+        lcp.clickButtonEducation();
+        lcp.clickHigh();
+        lcp.clickButtonEducation();
+        lcp.clickButtonUniversity();
+        lcp.clickUniversityBSU();
+        lcp.clickButtonUniversity();
+        lcp.clickButtonCompetence();
+        lcp.clickCompetenceMsAccess();
         lcp.clickClearFilter();
         Assert.assertEquals(ROGOVA, lcp.getFirstFindCandidate());
     }
