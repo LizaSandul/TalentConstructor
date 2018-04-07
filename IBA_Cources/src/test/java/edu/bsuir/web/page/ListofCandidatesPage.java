@@ -3,7 +3,12 @@ package edu.bsuir.web.page;
 import edu.bsuir.driver.WebDriverSingleton;
 import edu.bsuir.web.element.ListofCandidatesPageElements;
 import edu.bsuir.web.element.LoginElements;
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 public class ListofCandidatesPage {
@@ -15,7 +20,9 @@ public class ListofCandidatesPage {
     }
 
     public void clickClearFilter( ){
-        ListofCandidatesPageElements.CLEAR_FILTER.getText();
+        WebElement element = driver.findElement(By.id("filter-clear-link"));
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        executor.executeScript("arguments[0].click();", element);
     }
 
     public void selectExpirience(int value) {
@@ -32,7 +39,8 @@ public class ListofCandidatesPage {
     public void clickStatusAvailable( ){
         ListofCandidatesPageElements.STATUS_AVAILABLE_APPROVAL.click();
     }
-
+    public void clickStatusHires(){ListofCandidatesPageElements.STATUS_HIRED.click();
+    }
     public void clickButtonVacancies( ){
         ListofCandidatesPageElements.BUTTON_VACANCIES.click();
     }
@@ -59,6 +67,18 @@ public class ListofCandidatesPage {
     public void clickEducationAvarage( ){
         ListofCandidatesPageElements.EDUCATION_AVERAGE.click();
     }
+    public void clickHigh( ){
+        ListofCandidatesPageElements.EDUCATION_HIGHER.click();
+    }
+    public void clickEducationVocationAndTechnical( ){
+        ListofCandidatesPageElements.EDUCATION_VOCATION_AND_TECHNICAL.click();
+    }
+    public void clickEducationInconpleteHigh( ){
+        ListofCandidatesPageElements.EDUCATION_INCONPLETE_HIGHER.click();
+    }
+    public void clickSpecializedSecondary( ){
+        ListofCandidatesPageElements.EDUCATION_SPECIALIZED_SECONDARY.click();
+    }
     public void typeSearchEducation(String education ){
         ListofCandidatesPageElements.SEARCH_EDUCATION.type(education);
     }
@@ -72,6 +92,12 @@ public class ListofCandidatesPage {
     public void clickUniversityBSUIR( ){
         ListofCandidatesPageElements.UNIVERSITY_BSUIR.click();
     }
+    public void clickUniversityBNTU( ){
+        ListofCandidatesPageElements.UNIVERSITY_BNTU.click();
+    }
+    public void clickUniversityBSEU( ){
+        ListofCandidatesPageElements.UNIVERSITY_BSEU.click();
+    }
     public void typeSearchUniversity(String university ){
         ListofCandidatesPageElements.SEARCH_UNIVERSITY.type(university);
     }
@@ -82,6 +108,15 @@ public class ListofCandidatesPage {
     public void clickCompetenceMsAccess( ){
         ListofCandidatesPageElements.COMPETENCE_MS_ACCESS.click();
     }
+    public void clickCompetenceMsOneNote( ){
+        ListofCandidatesPageElements.COMPETENCE_MS_ONENOTE.click();
+    }
+    public void clickCompetenceEnglish( ){
+        ListofCandidatesPageElements.COMPETENCE_ENGLISH.click();
+    }
+    public void clickCompetenceFrench( ){
+        ListofCandidatesPageElements.COMPETENCE_FRENCH.click();
+    }
     public void typeSearchCompetence(String competence ){
         ListofCandidatesPageElements.SEARCH_COMPETENCE.type(competence);
     }
@@ -89,9 +124,7 @@ public class ListofCandidatesPage {
     public void searchCandidate(String candidate ){
         ListofCandidatesPageElements.SEARCH_CANDIDATE.type(candidate);
     }
-    public void clickButtonNewCandidate( ){
-        ListofCandidatesPageElements.BUTTON_NEW_CANDIDATE.click();
-    }
+
     public void clickCandidateRogova( ){
         ListofCandidatesPageElements.CANDIDATE_ROGOVA.click();
     }
@@ -102,7 +135,6 @@ public class ListofCandidatesPage {
     public String getFirstFindCandidate(){
         return ListofCandidatesPageElements.FIND_FIRST_CANDIDATE.getText();
     }
-
     public String getMessageEmptySearch(){
         return ListofCandidatesPageElements.SEARCH_EMPTY_MESSAGE.getText();
     }
@@ -110,4 +142,7 @@ public class ListofCandidatesPage {
     public void clickCreateCandidate(){
         ListofCandidatesPageElements.CANDIDATE_CREATE.click();
     }
+
+
 }
+

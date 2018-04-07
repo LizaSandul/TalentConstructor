@@ -5,18 +5,11 @@ import org.openqa.selenium.By;
 
 public class ListofCandidatesPageElements {
 
-
     public static final String URL = "http://testing.cld.iba.by/web/guest/recruiting/candidates/";
 
-    public static final Element CLEAR_FILTER = new Element("Очистить фильтр", By.xpath("//a[@onclick='clearFilter()']"));
     public static final Element SELECT_EXPIRIENCE = new Element("Выбрать опыт работы", By.xpath("//select[@id='experience']"));
 
-    public static final Element WORK_EXPERIENCE_NO = new Element("Опыта работы нет", By.xpath("//select[@id='experience']//option[@value='0']"));
-    public static final Element WORK_EXPERIENCE_FROM_ONE_YEAR = new Element("Опыт работы год", By.xpath("//select[@id='experience']//option[@value='12']"));
-    public static final Element WORK_EXPERIENCE_FROM_THREE_YEAR = new Element("Опыт работы 3 года", By.xpath("//select[@id='experience']//option[@value='36']"));
-    public static final Element WORK_EXPERIENCE_FROM_FIVE_YEAR = new Element("Опыт работы 5 лет", By.xpath("//select[@id='experience']//option[@value='60']"));
-
-    public static final Element STATUS_NEW = new Element("Статус Новый", By.xpath("//input[@id='status_New']"));
+    public static final Element STATUS_NEW = new Element("Кнопка Статус - Новые кандидаты", By.xpath("//div[@class='checkbox checkbox-primary']//input"));
     public static final Element STATUS_ON_APPROVAL = new Element("Статус рассматривается на вакансию", By.xpath("//input[@id='status_OnApprovalForTheVacancy']"));
     public static final Element STATUS_AVAILABLE_APPROVAL = new Element("Статус доступен на вакансию", By.xpath("//input[@id='status_AvailableForApproval']"));
     public static final Element STATUS_HIRED = new Element("Статус принят", By.xpath("//*[@id=\"status_Hired\"]"));
@@ -41,7 +34,7 @@ public class ListofCandidatesPageElements {
     public static final Element UNIVERSITY_BSU = new Element("Университет БГУ", By.xpath("//input[@id='universities_filtermultiselect-0']"));
     public static final Element UNIVERSITY_BSUIR = new Element("Университет БГУИР", By.xpath("//input[@id='universities_filtermultiselect-1']"));
     public static final Element UNIVERSITY_BSEU = new Element("Университет БГУ", By.xpath("//input[@id='universities_filtermultiselect-2']"));
-    public static final Element UNIVERSITY_BSTU = new Element("Университет БГУИР", By.xpath("//input[@id='universities_filtermultiselect-3']"));
+    public static final Element UNIVERSITY_BNTU = new Element("Университет БГУИР", By.xpath("//input[@id='universities_filtermultiselect-3']"));
     public static final Element SEARCH_UNIVERSITY = new Element("Поиск университета", By.xpath("//div[@id='education_filter']//input[@id='searchInput']"));
 
     public static final Element BUTTON_COMPETENCE = new Element("Кнопка выбора компетенции", By.xpath("//div[@id='competencies_filter']//button"));
@@ -52,13 +45,11 @@ public class ListofCandidatesPageElements {
     public static final Element SEARCH_COMPETENCE = new Element("Поиск компетенции", By.xpath("//div[@id='education_filter']//input[@id='searchInput']"));
 
     public static final Element SEARCH_CANDIDATE = new Element("Поиск компетенции", By.xpath("//div[@class='search-row row-fluid col-xs-12']//input"));
-    public static final Element BUTTON_NEW_CANDIDATE = new Element("Поиск компетенции", By.xpath("//a[@id='createProfileButton']"));
     public static final Element CANDIDATE_ROGOVA = new Element("Поиск компетенции", By.xpath("//div[@id='candidates-table']//a[contains(@href,'16')]"));
     public static final Element CANDIDATE_ROGOVA_PHOTO = new Element("Поиск компетенции", By.xpath("//div[@id='candidates-table']//a[contains(@href,'16') and span]"));
 
     public static final Element FIND_FIRST_CANDIDATE = new Element("Поиск компетенции", By.xpath("//div[@class='table-container']//a/span"));
-
-public static final Element SEARCH_EMPTY_MESSAGE = new Element("Поиск компетенции", By.xpath("//tc-alert[@id='emptyListSearch']//div[@class='message']"));
+    public static final Element SEARCH_EMPTY_MESSAGE = new Element("Поиск компетенции", By.xpath("//tc-alert[@id='emptyListSearch']//div[@class='message']"));
 
     public static final Element CANDIDATE_CREATE = new Element("Поиск компетенции", By.xpath("//a[@id=\"createProfileButton\"]"));
 
