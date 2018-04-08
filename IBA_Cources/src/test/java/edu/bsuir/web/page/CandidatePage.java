@@ -224,8 +224,17 @@ public class CandidatePage {
     public void clickTabRecomendation(){
         CandidatePageElement.TAB_RECOMMENDATIONS.click();
     }
+    public void clickAttachFile(){
+        CandidatePageElement.ATTACH_FILE.click();
+    }
 
+    public void clickDeleteCandidate(){
+        CandidatePageElement.BUTTON_DELETE_CANDIDATE.click();
+    }
 
+    public void clickDeleteCandidateOk(){
+        CandidatePageElement.BUTTON_DELETE_OK.click();
+    }
     public void GoToCreateSummaryPage()
     {
         driver.get(CandidatePageElement.URL);

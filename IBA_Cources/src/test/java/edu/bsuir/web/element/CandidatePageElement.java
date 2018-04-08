@@ -16,6 +16,7 @@ public class CandidatePageElement {
 
     public static final Element EMAIL = new Element("Почта", By.xpath("//*[@id=\"primaryEmail\"]"));
 
+    public static final Element SKYPE = new Element("Почта", By.xpath("//*[@id=\"skype\"]"));
 
     public static final Element COUNTRY = new Element("Страна", By.xpath("//*[@id=\"country\"]"));
 
@@ -35,6 +36,10 @@ public class CandidatePageElement {
     public static final Element ADD_PHONE_RECOMINDATION = new Element("Телефон", By.xpath("//*[@id=\"recTelephone\"]"));
     public static final Element SAVE_BUTTON = new Element("Сохранить", By.xpath("//*[@id=\"saveButton\"]"));
 
+
+    public static final Element BUTTON_DELETE_OK = new Element("Вернуться к списку", By.xpath("//button[contains(text(),'Удалить')]"));
+
+    public static final Element BUTTON_DELETE_CANDIDATE = new Element("Вернуться к списку", By.xpath("//a[@id=\"removeButton\"]"));
 
     public static final Element BUTTON_BACK_TO_LIST = new Element("Вернуться к списку", By.xpath("//div//a[contains(@href,'candidates') and img[contains(@src,'back')] ]"));
 
@@ -96,6 +101,7 @@ public class CandidatePageElement {
 
     public static final String URL_CANDIDATE = "http://testing.cld.iba.by/web/guest/recruiting/candidates/-/candidates/232";
 
+    public static final Element ATTACH_FILE = new Element("",By.xpath("//span//i[@class=\"fa fa-plus add-attachment\"]"));
 
 
 
