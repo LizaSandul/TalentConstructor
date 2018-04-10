@@ -2,6 +2,7 @@ package edu.bsuir.test;
 
 import edu.bsuir.driver.WebDriverSingleton;
 import edu.bsuir.general.Login;
+import edu.bsuir.util.help.Helper;
 import edu.bsuir.web.page.CandidatePage;
 import edu.bsuir.web.page.ListofCandidatesPage;
 import edu.bsuir.web.page.MainPage;
@@ -11,11 +12,20 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.sikuli.script.Pattern;
+import org.sikuli.script.Screen;
+
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import static edu.bsuir.util.help.GeneratorMode.ALPHA;
 import static edu.bsuir.util.help.GeneratorMode.ALPHANUMERIC;
 import static edu.bsuir.util.help.GeneratorMode.NUMERIC;
-import static edu.bsuir.util.help.Helper.generateRandomString;
+import static edu.bsuir.util.help.Helper.*;
 
 public class CandidateEditTest extends Login {
 
@@ -27,7 +37,10 @@ public class CandidateEditTest extends Login {
     public static final String SAME_EMAIL_MESSAGE = "Кандидат с таким e-mail уже существует";
     public static final String CANDIDATE_LIST_PAGE = "Создание заявки на подбор персонала - Конструктор Талантов";
     public static final String SUCCESS_DELETE = "Профиль кандидата был успешно удален из системы";
-
+    public static final String NO_AVATAR = "http://testing.cld.iba.by/TC-RecruitingAndOnboarding-portlet/common/css/images/no-avatar.jpg";
+    public static final String PHOTO = "resources/human.png";
+    public static final String SV = "resources/SV.doc";
+    public static final String SV_NAME = "SV.doc";
 
     @Before
     public void init() throws Exception {
@@ -137,22 +150,36 @@ public class CandidateEditTest extends Login {
     }
 
     @Test
-    public void addPhoto () throws InterruptedException {
+    public void addPhotoByClickPhoto () throws Exception {
         cp.enterPage();
-        cp.enterCandidatePage();
-        cp.clickButtonEdit();
-        Thread.sleep(1000);
-        cp.clickPhotoAdd();
-
-        //Проверить добавление фото в БД
+        cp.clickToAddPhoto(getAbsolutePath(PHOTO));
+        Assert.assertNotEquals(cp.checkPhoto("src"), NO_AVATAR);
     }
+
+    @Test
+    public void addPhotoByClickText() {
+        cp.enterPage();
+        cp.clickButtonPhoto();
+        sendFile(getAbsolutePath(PHOTO));
+        Assert.assertNotEquals(cp.checkPhoto("src"), NO_AVATAR);
+    }
+
 
     @Test
     public void loadSV () throws InterruptedException {
         cp.enterPage();
         cp.clickButtonloadSV();
         cp.clickLoadSvOk();
-        // сравнитьт с БД правильность вывода
+        sendFile(getAbsolutePath(SV));
+        Assert.assertNotNull(cp.checkResume());
+    }
+
+    @Test
+    public void clickAttachFile () throws InterruptedException {
+        cp.enterPage();
+        cp.clickAttachFile();
+        sendFile(getAbsolutePath(SV));
+        Assert.assertEquals(cp.checkAttachFile(), SV_NAME);
     }
 
     @Test
@@ -185,19 +212,6 @@ public class CandidateEditTest extends Login {
         Assert.assertEquals(SUCCESS_MESSAGE, cp.getSuccessMessage());
     }
 
-    @Test
-    public void checkclickPhoto () throws InterruptedException {
-        cp.enterCandidatePage();
-        cp.clickPhoto();
-        // проверка фото увеличилось
-    }
-
-    @Test
-    public void clickAttachFile () throws InterruptedException {
-        cp.enterPage();
-        cp.clickAttachFile();
-        // првоерка загрузки файла
-    }
 
     @After
     public void shutDown() {

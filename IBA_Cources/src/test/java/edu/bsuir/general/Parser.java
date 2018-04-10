@@ -1,16 +1,10 @@
 package edu.bsuir.general;
 
-import edu.bsuir.driver.WebDriverSingleton;
-import edu.bsuir.web.page.LoginPage;
-import jdk.internal.org.xml.sax.SAXException;
-import org.openqa.selenium.WebDriver;
 import org.w3c.dom.*;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
-import java.io.IOException;
 
 public class Parser {
 

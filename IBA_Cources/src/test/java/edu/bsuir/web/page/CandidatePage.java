@@ -1,22 +1,24 @@
 package edu.bsuir.web.page;
 
 import edu.bsuir.driver.WebDriverSingleton;
-import edu.bsuir.element.Element;
+import edu.bsuir.util.help.Helper;
 import edu.bsuir.web.element.CandidatePageElement;
-import edu.bsuir.web.element.ListofCandidatesPageElements;
-import edu.bsuir.web.element.LoginElements;
-import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 public class CandidatePage {
 
 
+
     WebDriver driver =  WebDriverSingleton.getInstance();
+
+
+    public String checkResume(){return CandidatePageElement.CHECK_RESUME.getText();}
+    public String checkAttachFile(){return CandidatePageElement.CHECK_ATTACH_FILE.getText();}
+
+    public String checkPhoto(String text){return CandidatePageElement.CHECK_PHOTO.getAttribute(text);}
 
     public void enterPage(){
         driver.get(CandidatePageElement.URL);
@@ -24,13 +26,13 @@ public class CandidatePage {
     public void enterCandidatePage(){
         driver.get(CandidatePageElement.URL_CANDIDATE);
     }
-
+/*
     public void clickPhotoAdd( ){
         WebElement element = driver.findElement(By.xpath("//div[@id='profilePhoto']//img"));
         element.sendKeys("//foto1.jpg");
         //JavascriptExecutor executor = (JavascriptExecutor)driver;
        // executor.executeScript("arguments[0].click();", element);
-    }
+    }*/
     public void clickButtonCreate(){CandidatePageElement.SAVE_BUTTON.click();}
     public String getMessageError(){
         return CandidatePageElement.ERROR_MESSAGE.getText();
@@ -54,13 +56,17 @@ public class CandidatePage {
     }
 
     public void clickButtonEdit(){CandidatePageElement.BUTTON_EDIT.click();}
-    public void clickPhoto(){
-        CandidatePageElement.PHOTO.click();
-    }
-    public void clickToAddPhoto(){
-        CandidatePageElement.BUTTON_CHANGE_PHOTO.click();
+    public void clickButtonPhoto(){
+        CandidatePageElement.BUTTON_PHOTO.click();
     }
 
+    public void clickToAddPhoto(String path){
+        CandidatePageElement.CHANGE_PHOTO.sendKeys(path);
+    }
+
+    public void sendPhoto(){
+
+    }
     public void typeComment(String comment){
         CandidatePageElement.TEXTAREA_COMMENT.type(comment);
     }

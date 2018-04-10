@@ -8,6 +8,14 @@ public class CandidatePageElement {
 
     public static final String URL ="http://testing.cld.iba.by/web/guest/recruiting/candidates/-/candidates/createProfile";
 
+
+    public static final Element BUTTON_PHOTO = new Element("Фамилия", By.xpath("//span[@id='changeImgLink']"));
+
+    public static final Element CHECK_PHOTO = new Element("Фамилия", By.xpath("//img[contains(@id,'currentImage')]"));
+
+
+
+    public static final Element CHECK_RESUME = new Element("Фамилия", By.xpath("//div[@id='additionalInfoControls']//textarea"));
     public static final Element SURNAME = new Element("Фамилия", By.xpath("//*[@id=\"surname\"]"));
 
     public static final Element NAME = new Element("Имя", By.xpath("//*[@id=\"name\"]"));
@@ -45,12 +53,12 @@ public class CandidatePageElement {
 
      public static final Element BUTTON_EDIT = new Element("Редактировать", By.xpath("//div//a[@id='editButton']"));
     public static final Element PHOTO = new Element("Фото", By.xpath("//div[@id='profilePhoto']//img"));
-    public static final Element BUTTON_CHANGE_PHOTO = new Element("Загрузить фото", By.xpath("//span[@id='changeImgLink']"));
+    public static final Element CHANGE_PHOTO = new Element("Загрузить фото", By.xpath("//input[@id='profileImage']"));
    public static final Element TEXTAREA_COMMENT = new Element("Поле коментарий", By.xpath("//div[@id='allComments']//textarea"));
 
     public static final Element BUTTON_LOAD_SV = new Element("Загрузить резюме", By.xpath("//div[@id='buttonsBar']//span[@id='loadCVLink']"));
     public static final Element BUTTON_LOAD_SV_CANCEL = new Element("Загрузить резюме отмена", By.xpath("//div[@id='buttonsBar']//span[@id='cancelButton']"));
-    public static final Element BUTTON_LOAD_SV_OK = new Element("Загрузить резюме Продолжить", By.xpath(" //div[@id='buttonsBar']//span[@id='cancelButton']"));
+    public static final Element BUTTON_LOAD_SV_OK = new Element("Загрузить резюме Продолжить", By.xpath("//button[contains(text(),'OK')]"));
 
     public static final Element BUTTON_EDIT_CANCEL = new Element("Редактирование отмена", By.xpath("//div[@id='buttonsBar']//a[@id='cancelButton']"));
 
@@ -101,7 +109,11 @@ public class CandidatePageElement {
 
     public static final String URL_CANDIDATE = "http://testing.cld.iba.by/web/guest/recruiting/candidates/-/candidates/232";
 
-    public static final Element ATTACH_FILE = new Element("",By.xpath("//span//i[@class=\"fa fa-plus add-attachment\"]"));
+    public static final Element ATTACH_FILE = new Element("",By.xpath("//div[@class=\"attachments-row row-fluid\"]//span//i[contains(@class,'fa fa-plus add-attachment')]"));
+
+
+    public static final Element CHECK_ATTACH_FILE = new Element("",By.xpath("//div[@id=\"attached-files\"]//span"));
+
 
 
 

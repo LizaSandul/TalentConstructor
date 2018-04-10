@@ -61,12 +61,27 @@ public class Element
         return getWebElement().getText();
     }
 
+    public String getAttribute(String text){
+        assertPresence();
+        return getWebElement().getAttribute(text);
+    }
+
     public void type(String text){
         assertPresence();
         WebElement element = getWebElement();
         element.clear();
         element.sendKeys(text);
     }
+
+
+    public void sendKeys(String text){
+       // assertPresence();
+        //WebElement element = getWebElement();
+        //element.clear();
+        getWebElement().sendKeys(text);
+    }
+
+
 
     public void doubleClick(){
         assertPresence();
