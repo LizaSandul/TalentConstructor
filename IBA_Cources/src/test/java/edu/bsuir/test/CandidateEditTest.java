@@ -6,6 +6,8 @@ import edu.bsuir.util.help.Helper;
 import edu.bsuir.web.page.CandidatePage;
 import edu.bsuir.web.page.ListofCandidatesPage;
 import edu.bsuir.web.page.MainPage;
+import io.qameta.allure.*;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -19,6 +21,7 @@ import org.sikuli.script.Screen;
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -49,6 +52,11 @@ public class CandidateEditTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void createCandidate () throws InterruptedException {
         cp.enterPage();
         cp.typeSurname(generateRandomString(11,ALPHA));
@@ -63,6 +71,11 @@ public class CandidateEditTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void createEmptyCandidate () throws InterruptedException {
         cp.enterPage();
         cp.clickButtonCreate();
@@ -70,6 +83,11 @@ public class CandidateEditTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void creatCandidateWithSameEmail () throws InterruptedException {
         cp.enterPage();
         cp.typeSurname(generateRandomString(11,ALPHA));
@@ -92,6 +110,11 @@ public class CandidateEditTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void creatCandidateWithSameFullName () throws InterruptedException {
         cp.enterPage();
         String surname = generateRandomString(8,ALPHA);
@@ -115,6 +138,11 @@ public class CandidateEditTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void createCandidateAll() throws InterruptedException {
         cp.enterPage();
         cp.typeSurname(generateRandomString(11,ALPHA));
@@ -150,6 +178,11 @@ public class CandidateEditTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void addPhotoByClickPhoto () throws Exception {
         cp.enterPage();
         cp.clickToAddPhoto(getAbsolutePath(PHOTO));
@@ -157,6 +190,11 @@ public class CandidateEditTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void addPhotoByClickText() {
         cp.enterPage();
         cp.clickButtonPhoto();
@@ -166,6 +204,11 @@ public class CandidateEditTest extends Login {
 
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void loadSV () throws InterruptedException {
         cp.enterPage();
         cp.clickButtonloadSV();
@@ -175,14 +218,23 @@ public class CandidateEditTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void clickAttachFile () throws InterruptedException {
         cp.enterPage();
         cp.clickAttachFile();
         sendFile(getAbsolutePath(SV));
         Assert.assertEquals(cp.checkAttachFile(), SV_NAME);
     }
-
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void deleteCandidate () throws InterruptedException {
         cp.enterPage();
         cp.typeSurname(generateRandomString(11,ALPHA));
@@ -197,6 +249,11 @@ public class CandidateEditTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void checkGoToBack () throws InterruptedException {
         cp.enterPage();
         cp.clickBackToList();
@@ -204,6 +261,11 @@ public class CandidateEditTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void checkEditCandidate () throws InterruptedException {
         cp.enterCandidatePage();
         cp.clickButtonEdit();
@@ -214,8 +276,7 @@ public class CandidateEditTest extends Login {
 
 
     @After
-    public void shutDown() {
-        driver.close();
-        WebDriverSingleton.destroyInstance();
+    public void shutDown() throws IOException {
+        closeBrowser();
     }
 }

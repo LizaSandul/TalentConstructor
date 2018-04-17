@@ -1,6 +1,7 @@
 package edu.bsuir.util.help;
 
 import edu.bsuir.driver.WebDriverSingleton;
+import io.qameta.allure.Step;
 import org.openqa.selenium.JavascriptExecutor;
 
 import java.awt.*;
@@ -13,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Helper {
 
+    @Step
     public static void waitForTime(int timeout) {
         try {
             TimeUnit.SECONDS.sleep(timeout);
@@ -20,7 +22,7 @@ public class Helper {
             e.printStackTrace();
         }
     }
-
+    @Step
     public static void waitForTimeInMilliseconds(long timeout) {
         try {
             TimeUnit.MILLISECONDS.sleep(timeout);
@@ -28,7 +30,7 @@ public class Helper {
             e.printStackTrace();
         }
     }
-
+    @Step
     public static String generateRandomString(int length, GeneratorMode mode) {
         StringBuffer buffer = new StringBuffer();
         String characters = "";
@@ -53,18 +55,18 @@ public class Helper {
         }
         return buffer.toString();
     }
-
+    @Step
     public static void closeBrowser() throws IOException {
         WebDriverSingleton.getInstance().close();
         WebDriverSingleton.destroyInstance();
     }
-
+    @Step
     public static String getAbsolutePath(String file) {
         Path path = Paths.get(file);
         return path.toAbsolutePath().toString();
     }
 
-
+    @Step
     public static void sendFile(String path) {
         try {
             setClipboardData(path);
@@ -82,13 +84,13 @@ public class Helper {
             e.printStackTrace();
         }
     }
-
+    @Step
     public static void setClipboardData(String string) {
         StringSelection stringSelection = new StringSelection(string);
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
     }
 
-
+    @Step
     public static void setAttributeValue(String webElementId, String attr, String value){
         JavascriptExecutor js = (JavascriptExecutor) WebDriverSingleton.getInstance();
         js.executeScript("document.getElementById('" + webElementId + "').setAttribute('" + attr + "', '" + value + "')");

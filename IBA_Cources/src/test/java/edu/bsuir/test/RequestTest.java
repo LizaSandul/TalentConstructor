@@ -4,11 +4,17 @@ import edu.bsuir.driver.WebDriverSingleton;
 import edu.bsuir.general.Login;
 import edu.bsuir.web.page.MainPage;
 import edu.bsuir.web.page.RequestPage;
+import io.qameta.allure.*;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
+
+import java.io.IOException;
+
+import static edu.bsuir.util.help.Helper.closeBrowser;
 
 public class RequestTest extends Login {
 
@@ -42,6 +48,11 @@ public class RequestTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void searchRequst() throws InterruptedException {
         mp.clickRecruiting();
         cap.startCreateApi();
@@ -49,6 +60,11 @@ public class RequestTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void searchRequstWithSpace() throws InterruptedException {
         mp.clickRecruiting();
         cap.startCreateApi();
@@ -56,6 +72,11 @@ public class RequestTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void searchRequstWithSpaceBetweenLetters() throws InterruptedException {
         mp.clickRecruiting();
         cap.startCreateApi();
@@ -63,6 +84,11 @@ public class RequestTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void searchRequstWithWrongLetters() throws InterruptedException {
         mp.clickRecruiting();
         cap.startCreateApi();
@@ -70,6 +96,11 @@ public class RequestTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void filterRequest() throws InterruptedException {
         mp.clickRecruiting();
         cap.startCreateApi();
@@ -77,6 +108,11 @@ public class RequestTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void clickRequest() throws InterruptedException {
         mp.clickRecruiting();
         cap.startCreateApi();
@@ -84,6 +120,11 @@ public class RequestTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void createNewRequst() throws Exception {
         mp.clickRecruiting();
         cap.startCreateApi();
@@ -115,6 +156,11 @@ public class RequestTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void checkNewRequest() throws InterruptedException {
         mp.clickRecruiting();
         cap.startCreateApi();
@@ -122,6 +168,11 @@ public class RequestTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void checkNegativeRequest() throws InterruptedException {
         mp.clickRecruiting();
         cap.startCreateApi();
@@ -129,6 +180,11 @@ public class RequestTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void editRequest() throws InterruptedException {
         mp.clickRecruiting();
         cap.startCreateApi();
@@ -136,6 +192,11 @@ public class RequestTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void deleteRequest() throws InterruptedException {
         mp.clickRecruiting();
         cap.startCreateApi();
@@ -143,6 +204,11 @@ public class RequestTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void sendToAgreementRequest() throws InterruptedException {
         mp.clickRecruiting();
         cap.startCreateApi();
@@ -150,6 +216,11 @@ public class RequestTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void sendToArchiveRequest() throws InterruptedException {
         mp.clickRecruiting();
         cap.startCreateApi();
@@ -157,6 +228,11 @@ public class RequestTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void createVacancyFromRequest() throws InterruptedException {
         mp.clickRecruiting();
         cap.startCreateApi();
@@ -164,6 +240,11 @@ public class RequestTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void checkProtocolRequest() throws InterruptedException {
         mp.clickRecruiting();
         cap.startCreateApi();
@@ -171,9 +252,8 @@ public class RequestTest extends Login {
     }
 
     @After
-    public void shutDown() {
-        driver.close();
-        WebDriverSingleton.destroyInstance();
+    public void shutDown() throws IOException {
+        closeBrowser();
     }
 
 }

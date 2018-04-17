@@ -4,6 +4,8 @@ import edu.bsuir.driver.WebDriverSingleton;
 import edu.bsuir.web.element.ListofCandidatesPageElements;
 import edu.bsuir.web.page.ListofCandidatesPage;
 import edu.bsuir.web.page.MainPage;
+import io.qameta.allure.*;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -13,6 +15,10 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import edu.bsuir.general.Login;
 import org.openqa.selenium.WebElement;
+
+import java.io.IOException;
+
+import static edu.bsuir.util.help.Helper.closeBrowser;
 
 public class CandidateTest extends Login {
 
@@ -45,6 +51,11 @@ public class CandidateTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void clickRogova () throws InterruptedException {
         lcp.enterPage();
         lcp.clickCandidateRogova();
@@ -52,6 +63,11 @@ public class CandidateTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void clickRogovaPhoto () throws InterruptedException {
         lcp.enterPage();
         Thread.sleep(1000);
@@ -60,6 +76,11 @@ public class CandidateTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void searchCandidateBySurname () throws InterruptedException {
         lcp.enterPage();
         lcp.searchCandidate(ROGOVA_SURNAME);
@@ -67,6 +88,11 @@ public class CandidateTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void searchCandidateByName () throws InterruptedException {
         lcp.enterPage();
         lcp.searchCandidate(ROGOVA_NAME);
@@ -74,6 +100,11 @@ public class CandidateTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void searchCandidateBySecondName () throws InterruptedException {
         lcp.enterPage();
         lcp.searchCandidate(ROGOVA_SECOND_NAME);
@@ -81,6 +112,11 @@ public class CandidateTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void searchCandidateWithWrongCharacters_1 () throws InterruptedException {
         lcp.enterPage();
         Thread.sleep(1000);
@@ -89,6 +125,11 @@ public class CandidateTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void searchCandidateWithWrongCharacters_2 () throws InterruptedException {
         lcp.enterPage();
         lcp.searchCandidate(ROGOVA_SURNAME_WITH_WRONG_CHARACTERS_2);
@@ -96,6 +137,11 @@ public class CandidateTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void searchCandidateWithWrongCharacters_3 () throws InterruptedException {
         lcp.enterPage();
         Thread.sleep(1000);
@@ -105,6 +151,11 @@ public class CandidateTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void searchCandidateWithWrongCharacters_4 () throws InterruptedException {
         lcp.enterPage();
         lcp.searchCandidate(ROGOVA_SURNAME_WITH_WRONG_CHARACTERS_4);
@@ -112,6 +163,11 @@ public class CandidateTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void searchCandidateWithSpaceBetweenLetters () throws InterruptedException {
         lcp.enterPage();
         lcp.searchCandidate(ROGOVA_SURNAME_WITH_SPACE_BETWEEN_LETTERS);
@@ -119,6 +175,11 @@ public class CandidateTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void searchCandidateWithSpace () throws InterruptedException {
         lcp.enterPage();
         lcp.searchCandidate(ROGOVA_SURNAME_WITH_SPACE);
@@ -126,6 +187,11 @@ public class CandidateTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void filterCandidate () throws Exception {
         lcp.enterPage();
         lcp.clickRelocationAvailable();
@@ -145,6 +211,11 @@ public class CandidateTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void negativeFilterCandidate () throws Exception {
         lcp.enterPage();
         lcp.clickRelocationAvailable();
@@ -164,6 +235,11 @@ public class CandidateTest extends Login {
     }
 
     @Test(expected = Exception.class)
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void FilterNotClickEnotherOnes () throws Exception {
         lcp.enterPage();
         lcp.clickButtonEducation();
@@ -172,6 +248,11 @@ public class CandidateTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void checkClearFilter () throws Exception {
         lcp.enterPage();
         lcp.clickRelocationAvailable();
@@ -192,6 +273,11 @@ public class CandidateTest extends Login {
     }
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void typeButtonCreateCandidate () throws InterruptedException {
         lcp.enterPage();
         lcp.clickCreateCandidate();
@@ -199,9 +285,8 @@ public class CandidateTest extends Login {
     }
 
     @After
-    public void shutDown() {
-        driver.close();
-        WebDriverSingleton.destroyInstance();
+    public void shutDown() throws IOException {
+        closeBrowser();
     }
 
 }

@@ -1,5 +1,6 @@
 package edu.bsuir.general;
 
+import io.qameta.allure.Step;
 import org.w3c.dom.*;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -8,6 +9,7 @@ import java.io.File;
 
 public class Parser {
 
+    @Step
     public static User ParserXml(String role) throws InterruptedException {
         User list = new User();
         try {

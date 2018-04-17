@@ -10,7 +10,7 @@ public class WebDriverSingleton {
 
     public static WebDriver getInstance() {
         if (webDriver == null) {
-            System.setProperty("webdriver.chrome.driver", "src/resources/chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
             webDriver = new ChromeDriver();
             webDriver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
             webDriver.manage().window().maximize();

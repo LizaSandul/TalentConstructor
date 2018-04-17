@@ -1,6 +1,8 @@
 package edu.bsuir.test;
 
 import edu.bsuir.driver.WebDriverSingleton;
+import io.qameta.allure.*;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
@@ -16,6 +18,11 @@ public class TestExample {
     private WebDriver driver = WebDriverSingleton.getInstance();
 
     @Test
+    @DisplayName("Ввод логина и пароля")
+    @Description("Неравильные логин и пароль")
+    @Feature("Вход")
+    @Story("Сценарий 5 – Негативный тест")
+    @Severity(SeverityLevel.BLOCKER)
     public void shouldGoogleIbaMainPage() {
         driver.get("https://www.google.by");
         WebElement searchField = driver.findElement(By.className("gsfi"));
